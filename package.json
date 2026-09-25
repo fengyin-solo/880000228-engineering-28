@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "verify:notes": "node scripts/verify-note-store.mjs",
+    "build": "npm run verify:notes && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

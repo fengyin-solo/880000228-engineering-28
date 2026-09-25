@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm run test:notes",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:notes": "node scripts/verify-notes.mjs"
   },
   "dependencies": {
     "vue": "^3.5.34",

@@ -5,15 +5,16 @@ import BatchGrid from '../components/restoration/BatchGrid.vue'
 import EnvironmentCards from '../components/restoration/EnvironmentCards.vue'
 import HeroBanner from '../components/restoration/HeroBanner.vue'
 import {
-  restorationBatches,
   restorationEnvironment,
   restorationHero,
   restorationSteps,
 } from '../data/restorationData'
 import { useRestorationOverview } from '../composables/useRestorationOverview'
+import { useRepairNotes } from '../composables/useRepairNotes'
 
 const { batchCount, environmentCount, highRiskCount, ownerCount } =
   useRestorationOverview()
+const { batches } = useRepairNotes()
 
 const statCards = [
   { label: '在册批次', value: batchCount.value },
@@ -38,7 +39,7 @@ const statCards = [
 
     <section class="two-column">
       <PanelSection title="重点批次" badge="优先处理">
-        <BatchGrid :items="restorationBatches" />
+        <BatchGrid :items="batches" />
       </PanelSection>
 
       <PanelSection title="当日工序" badge="修复流程">
